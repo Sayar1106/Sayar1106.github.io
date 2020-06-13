@@ -573,7 +573,12 @@ object{
 /*End media queries*/
 
 /* media queries*/
+@media screen and (max-width: 1156px){
+    .skillicons{
+        justify-content: center;
+    }
 
+}
 @media screen and (max-width: 768px){
 
     body{

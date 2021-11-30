@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Web App | Academic</title>
+    <link>https://Sayar1106.github.io/tag/web-app/</link>
+      <atom:link href="https://Sayar1106.github.io/tag/web-app/index.xml" rel="self" type="application/rss+xml" />
+    <description>Web App</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Tue, 30 Nov 2021 12:56:11 +0530</lastBuildDate>
+    <image>
+      <url>https://Sayar1106.github.io/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png</url>
+      <title>Web App</title>
+      <link>https://Sayar1106.github.io/tag/web-app/</link>
+    </image>
+    
+    <item>
+      <title>Heart Disease</title>
+      <link>https://Sayar1106.github.io/project/heart-disease/</link>
+      <pubDate>Tue, 30 Nov 2021 12:56:11 +0530</pubDate>
+      <guid>https://Sayar1106.github.io/project/heart-disease/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Covid Dashboard</title>
+      <link>https://Sayar1106.github.io/project/covid-dashboard/</link>
+      <pubDate>Tue, 30 Nov 2021 12:56:02 +0530</pubDate>
+      <guid>https://Sayar1106.github.io/project/covid-dashboard/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

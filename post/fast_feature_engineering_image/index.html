@@ -1,0 +1,1837 @@
+<!DOCTYPE html><html lang="en-us" >
+
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  
+  
+    <meta name="generator" content="Wowchemy 5.3.0 for Hugo" />
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  
+
+  
+  
+  
+    
+      
+      <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap" media="print" onload="this.media='all'">
+    
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Sayar Banerjee" />
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Make your images more suitable to feed into ML systems" />
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://Sayar1106.github.io/post/fast_feature_engineering_image/" />
+
+  
+  
+  
+    <meta name="theme-color" content="#1565c0" />
+  
+
+  
+  
+
+  
+
+  <link rel="stylesheet" href="/css/vendor-bundle.min.f1ecf783c14edc00c9320c205831ad8e.css" media="print" onload="this.media='all'">
+
+  
+  
+  
+    
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.1/css/academicons.min.css" integrity="sha512-W0xM4mr6dEP9nREo7Z9z+9X70wytKvMGeDsj7ps2+xg5QPrEBXC8tAW1IFnzjR6eoJ90JmCnFzerQJTLzIEHjA==" crossorigin="anonymous" media="print" onload="this.media='all'">
+    
+
+    
+    
+    
+    
+      
+      
+    
+    
+    
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/styles/github.min.css" crossorigin="anonymous" title="hl-light" media="print" onload="this.media='all'">
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" media="print" onload="this.media='all'" disabled>
+        
+      
+    
+
+    
+    
+    
+
+    
+
+    
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+        
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+  
+
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/wowchemy.7fa18a541b489204d14a3f8fd75bb3b5.css" />
+
+  
+
+
+
+  
+
+  
+
+  
+
+
+
+
+  
+  
+  
+
+  
+
+  
+    <link rel="manifest" href="/manifest.webmanifest" />
+  
+
+  <link rel="icon" type="image/png" href="/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_32x32_fill_lanczos_center_3.png" />
+  <link rel="apple-touch-icon" type="image/png" href="/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_180x180_fill_lanczos_center_3.png" />
+
+  <link rel="canonical" href="https://Sayar1106.github.io/post/fast_feature_engineering_image/" />
+
+  
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+
+  
+  
+    
+    
+  
+  <meta property="twitter:card" content="summary_large_image" />
+  
+  <meta property="og:site_name" content="Academic" />
+  <meta property="og:url" content="https://Sayar1106.github.io/post/fast_feature_engineering_image/" />
+  <meta property="og:title" content="Fast Feature Engineering in Python; Image Data | Academic" />
+  <meta property="og:description" content="Make your images more suitable to feed into ML systems" /><meta property="og:image" content="https://Sayar1106.github.io/post/fast_feature_engineering_image/featured.jpeg" />
+    <meta property="twitter:image" content="https://Sayar1106.github.io/post/fast_feature_engineering_image/featured.jpeg" /><meta property="og:locale" content="en-us" />
+  
+    
+      <meta
+        property="article:published_time"
+        content="2021-09-16T00:00:00&#43;00:00"
+      />
+    
+    <meta property="article:modified_time" content="2021-11-30T13:19:30&#43;05:30">
+  
+
+  
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://Sayar1106.github.io/post/fast_feature_engineering_image/"
+  },
+  "headline": "Fast Feature Engineering in Python; Image Data",
+  
+  "image": [
+    "https://Sayar1106.github.io/post/fast_feature_engineering_image/featured.jpeg"
+  ],
+  
+  "datePublished": "2021-09-16T00:00:00Z",
+  "dateModified": "2021-11-30T13:19:30+05:30",
+  
+  "author": {
+    "@type": "Person",
+    "name": "Sayar Banerjee"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Academic",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://Sayar1106.github.io/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_3.png"
+    }
+  },
+  "description": "Make your images more suitable to feed into ML systems"
+}
+</script>
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+  <title>Fast Feature Engineering in Python; Image Data | Academic</title>
+</head>
+
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper   " data-wc-page-id="acbee260398efab8405b827894f5f56c" >
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script src="/js/wowchemy-init.min.2da3b1fa37e894630bf6de39b1b694b3.js"></script>
+
+  
+
+
+<aside class="search-modal" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#" aria-label="Close"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control"
+        aria-label="Search...">
+        
+      </div>
+
+      
+      
+
+      
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+
+  <div class="page-header">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container-xl">
+
+    
+    <div class="d-none d-lg-inline-flex">
+      <a class="navbar-brand" href="/">Academic</a>
+    </div>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/">Academic</a>
+    </div>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#about"><span>Home</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#projects"><span>Projects</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#featured"><span>Skills</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#featured"><span>Accomplishments</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/uploads/resume.pdf"><span>CV</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+
+      
+      
+        
+      
+
+      
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      
+      <li class="nav-item dropdown theme-dropdown">
+        <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-label="Display preferences">
+          <i class="fas fa-moon" aria-hidden="true"></i>
+        </a>
+        <div class="dropdown-menu">
+          <a href="#" class="dropdown-item js-set-theme-light">
+            <span>Light</span>
+          </a>
+          <a href="#" class="dropdown-item js-set-theme-dark">
+            <span>Dark</span>
+          </a>
+          <a href="#" class="dropdown-item js-set-theme-auto">
+            <span>Automatic</span>
+          </a>
+        </div>
+      </li>
+      
+
+      
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+  </div>
+
+  <div class="page-body">
+    <article class="article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+
+<div class="article-container pt-3">
+  <h1>Fast Feature Engineering in Python; Image Data</h1>
+
+  
+  <p class="page-subtitle">Make your images more suitable to feed into ML systems</p>
+  
+
+  
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+          Last updated on
+      
+    
+    Nov 30, 2021
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    8 min read
+  </span>
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+  
+
+</div>
+
+  
+
+
+
+
+
+</div>
+
+
+<div class="article-header article-container featured-image-wrapper mt-4 mb-4" style="max-width: 720px; max-height: 480px;">
+  <div style="position: relative">
+    <img src="/post/fast_feature_engineering_image/featured_hu8a696656d06d00dd0aa1666c54428714_251054_720x0_resize_q75_lanczos.jpeg" width="720" height="480" alt="" class="featured-image">
+    
+  </div>
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      <blockquote>
+<p>“Finding patterns is easy in any kind of data-rich environment; that’s what mediocre gamblers do. The key is in determining whether the patterns represent noise or signal.”<br>
+― <strong>Nate Silver</strong></p>
+</blockquote>
+<p>This article is part 2 of my “Fast Feature Engineering” series. If you have not read my first article which talks about tabular data, then I request you to check it out here:</p>
+<p><a href="https://towardsdatascience.com/fast-feature-engineering-in-python-tabular-data-d050b68bb178" title="https://towardsdatascience.com/fast-feature-engineering-in-python-tabular-data-d050b68bb178" target="_blank" rel="noopener"><strong>Fast Feature Engineering in Python: Tabular Data</strong></a><a href="https://towardsdatascience.com/fast-feature-engineering-in-python-tabular-data-d050b68bb178" target="_blank" rel="noopener"></a></p>
+<p>This article will look at some of the best practices to follow when performing image processing as part of our machine learning workflow.</p>
+<hr>
+<h3 id="libraries">Libraries</h3>
+<pre><code class="language-python">import random  
+from PIL import Image  
+import cv2  
+import numpy as np  
+from matplotlib import pyplot as plt  
+import json  
+import albumentations as A  
+import torch  
+import torchvision.models as models  
+import torchvision.transforms as transforms  
+import torch.nn as nn  
+from tqdm import tqdm_notebook  
+from torch.utils.data import DataLoader  
+from torchvision.datasets import CIFAR10
+</code></pre>
+<hr>
+<h3 id="resizescale-images">Resize/Scale Images</h3>
+<p>Resizing is the most fundamental transformation done by deep learning practitioners in the field. The primary reason for doing this is to ensure that the input received by our deep learning system is <strong>consistent</strong>.</p>
+<p>Another reason for resizing is to <strong>reduce the number of parameters</strong> in the model. Smaller dimensions signify a smaller neural network and hence, saves us the time and computation power required to train our model.</p>
+<h4 id="_what-about-the-loss-of-information_"><strong><em>What about the loss of information?</em></strong></h4>
+<p>Some information is indeed <strong>lost</strong> when you resize down from a larger image. However, depending on your task, you can choose how much information you’re willing to sacrifice for training time and compute resources.</p>
+<p>For example, an <a href="https://en.wikipedia.org/wiki/Object_detection" target="_blank" rel="noopener"><strong>object detection task</strong></a> will require you to maintain the image&rsquo;s aspect ratio since the goal is to detect the exact position of objects.</p>
+<p>In contrast, an image classification task may require you to resize all images down to a specified size (224 x 224 is a good rule of thumb).</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img src="/posts_img/fast_feature_engineering/img_1.jpeg" alt="" loading="lazy" data-zoomable /></div>
+  </div></figure>
+</p>
+<p>After resizing our image looks like this:</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img src="/posts_img/fast_feature_engineering/img_2.jpeg" alt="" loading="lazy" data-zoomable /></div>
+  </div></figure>
+</p>
+<h4 id="_why-perform-imagescaling_"><em>Why perform image scaling?</em></h4>
+<p>Similar to tabular data, scaling images for classification tasks can help our deep learning model&rsquo;s learning rate to converge to the minima better.</p>
+<p>Scaling ensures that a particular dimension does not dominate others. I found a fantastic answer on StackExchange regarding this. You can read it <a href="https://stats.stackexchange.com/questions/185853/why-do-we-need-to-normalize-the-images-before-we-put-them-into-cnn" target="_blank" rel="noopener"><strong>here</strong></a>.</p>
+<p>One type of feature scaling is the process of <strong>standardizing</strong> our pixel values. We do this by subtracting the mean of each channel from its pixel value and then divide it via standard deviation.</p>
+<p>This is a popular choice of feature engineering when training models for classification tasks.</p>
+<pre><code class="language-python">mean = np.mean(img_resized, axis=(1,2), keepdims=True)
+std = np.std(img_resized, axis=(1,2), keepdims=True)
+img_std = (img_resized - mean) / std
+</code></pre>
+<p><strong><em>Note: Like resizing, one may not want to do image scaling when performing object detection and image generation tasks.</em></strong></p>
+<p>The example code above demonstrates the process of scaling an image via standardization. There are other forms of scaling such as <strong>centering</strong> and <strong>normalization</strong>.</p>
+<hr>
+<h3 id="augmentations-classification">Augmentations (Classification)</h3>
+<p>The primary motivation behind augmenting images is due to the appreciable data requirement for computer vision tasks. Often, obtaining enough images for training can prove to be challenging for a multitude of reasons.</p>
+<p>Image augmentation enables us to create new training samples by slightly modifying the original ones.</p>
+<p>In this example, we will look at how to apply vanilla augmentations for a classification task. We can use the out of the box implementations of the <strong>Albumentations</strong> library to do this:</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img src="/posts_img/fast_feature_engineering/img_3.jpeg" alt="" loading="lazy" data-zoomable /></div>
+  </div></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img src="/posts_img/fast_feature_engineering/img_4.jpeg" alt="" loading="lazy" data-zoomable /></div>
+  </div></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img src="/posts_img/fast_feature_engineering/img_5.jpeg" alt="" loading="lazy" data-zoomable /></div>
+  </div></figure>
+</p>
+<p>By applying image augmentations, our deep learning models can generalize better to the task (avoid overfitting), thereby increasing its predictive power on unseen data.</p>
+<hr>
+<h3 id="augmentations-object-detection">Augmentations (Object Detection)</h3>
+<p>The Albumentations library can also be used to create augmentations for other tasks such as object detections. Object detection requires us to create bounding boxes around the object of interest.</p>
+<p>Working with raw data can prove to be challenging when trying to annotate images with the coordinates for the bounding boxes.</p>
+<p>Fortunately, there are many publicly and freely available datasets that we can use to create an augmentation pipeline for object detection. One such dataset is the <a href="https://public.roboflow.com/object-detection/chess-full" target="_blank" rel="noopener"><strong>Chess Dataset</strong></a>.</p>
+<p>The dataset contains 606 images of chess pieces on a chessboard.</p>
+<p>Along with the images, a JSON file is provided that contains all the information pertaining to the bounding boxes for each chess piece in a single image.</p>
+<p>By writing a simple function, we can visualize the data after the augmentation is applied:</p>
+<pre><code class="language-python">with open(&quot;_annotations.coco.json&quot;) as f:
+    json_file = json.load(f)
+    
+x_min, y_min, w, h = json_file['annotations'][0]['bbox']
+x_min, x_max, y_min, y_max = int(x_min), int(x_min + w), int(y_min), int(y_min + h)
+
+def visualize_bbox(img, bbox, class_name, color=(0, 255, 0), thickness=2):
+    x_min, y_min, w, h = bbox
+    x_min, x_max, y_min, y_max = int(x_min), int(x_min + w), int(y_min), int(y_min + h)
+
+    cv2.rectangle(img, (x_min, y_min), (x_max, y_max), color=color, thickness=thickness)
+
+    ((text_width, text_height), _) = cv2.getTextSize(class_name, cv2.FONT_HERSHEY_SIMPLEX, 0.35, 1)    
+    cv2.rectangle(img, (x_min, y_min - int(1.3 * text_height)), (x_min + text_width, y_min), BOX_COLOR, -1)
+    cv2.putText(
+        img,
+        text=class_name,
+        org=(x_min, y_min - int(0.3 * text_height)),
+        fontFace=cv2.FONT_HERSHEY_SIMPLEX,
+        fontScale=0.35, 
+        color=(255, 255, 255), 
+        lineType=cv2.LINE_AA,
+    )
+    return img
+  
+bbox_img = visualize_bbox(np.array(img), 
+                          json_file['annotations'][0]['bbox'], 
+                          class_name=json_file['categories'][0]['name'])
+
+Image.fromarray(bbox_img)
+</code></pre>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img src="/Users/Banner/Downloads/medium-export-aa5b5fa1b4f15ba326f851375de5c386499a5652f183eac85ab56b6ca8924b20/posts/md_1638090489769/img/1__MFakz3EYf73afrl__aT3S2A.jpeg" alt="" loading="lazy" data-zoomable /></div>
+  </div></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img src="/posts_img/fast_feature_engineering/img_6.jpeg" alt="" loading="lazy" data-zoomable /></div>
+  </div></figure>
+</p>
+<p>Now, let’s try to create an augmentation pipeline using Albumentations.</p>
+<p>The JSON file that contains the annotation information has the following keys:</p>
+<p><code>dict_keys([‘info’, ‘licenses’, ‘categories’, ‘images’, ‘annotations’])</code></p>
+<p><code>images</code> contains information about the image file whereas <code>annotations</code> contains information about the bounding boxes for each object in an image.</p>
+<p>Finally, <code>categories</code> contains keys that map to the type of chess pieces in the image.</p>
+<pre><code>image_list = json_file.get('images')  
+anno_list = json_file.get('annotations')  
+cat_list = json_file.get('categories')
+</code></pre>
+<p><code>image_list</code> :</p>
+<pre><code>[{'id': 0,  
+  'license': 1,  
+  'file_name': 'IMG_0317_JPG.rf.00207d2fe8c0a0f20715333d49d22b4f.jpg',  
+  'height': 416,  
+  'width': 416,  
+  'date_captured': '2021-02-23T17:32:58+00:00'},  
+ {'id': 1,  
+  'license': 1,  
+  'file_name': '5a8433ec79c881f84ef19a07dc73665d_jpg.rf.00544a8110f323e0d7721b3acf2a9e1e.jpg',  
+  'height': 416,  
+  'width': 416,  
+  'date_captured': '2021-02-23T17:32:58+00:00'},  
+ {'id': 2,  
+  'license': 1,  
+  'file_name': '675619f2c8078824cfd182cec2eeba95_jpg.rf.0130e3c26b1bf275bf240894ba73ed7c.jpg',  
+  'height': 416,  
+  'width': 416,  
+  'date_captured': '2021-02-23T17:32:58+00:00'},  
+.  
+.  
+.  
+.
+</code></pre>
+<p><code>anno_list</code> :</p>
+<pre><code>[{'id': 0,  
+  'image_id': 0,  
+  'category_id': 7,  
+  'bbox': [220, 14, 18, 46.023746508293286],  
+  'area': 828.4274371492792,  
+  'segmentation':],  
+  'iscrowd': 0},  
+ {'id': 1,  
+  'image_id': 1,  
+  'category_id': 8,  
+  'bbox': [187, 103, 22.686527154676014, 59.127992255841036],  
+  'area': 1341.4088019136107,  
+  'segmentation': [],  
+  'iscrowd': 0},  
+ {'id': 2,  
+  'image_id': 2,  
+  'category_id': 10,  
+  'bbox': [203, 24, 24.26037020843023, 60.5],  
+  'area': 1467.752397610029,  
+  'segmentation': [],  
+  'iscrowd': 0},  
+.  
+.  
+.  
+.
+</code></pre>
+<p><code>cat_list</code> :</p>
+<pre><code>[{'id': 0, 'name': 'pieces', 'supercategory': 'none'},  
+ {'id': 1, 'name': 'bishop', 'supercategory': 'pieces'},  
+ {'id': 2, 'name': 'black-bishop', 'supercategory': 'pieces'},  
+ {'id': 3, 'name': 'black-king', 'supercategory': 'pieces'},  
+ {'id': 4, 'name': 'black-knight', 'supercategory': 'pieces'},  
+ {'id': 5, 'name': 'black-pawn', 'supercategory': 'pieces'},  
+ {'id': 6, 'name': 'black-queen', 'supercategory': 'pieces'},  
+ {'id': 7, 'name': 'black-rook', 'supercategory': 'pieces'},  
+ {'id': 8, 'name': 'white-bishop', 'supercategory': 'pieces'},  
+ {'id': 9, 'name': 'white-king', 'supercategory': 'pieces'},  
+ {'id': 10, 'name': 'white-knight', 'supercategory': 'pieces'},  
+ {'id': 11, 'name': 'white-pawn', 'supercategory': 'pieces'},  
+ {'id': 12, 'name': 'white-queen', 'supercategory': 'pieces'},  
+ {'id': 13, 'name': 'white-rook', 'supercategory': 'pieces'}]
+</code></pre>
+<p>We have to alter the structure of these lists to create an efficient pipeline:</p>
+<pre><code class="language-python">new_anno_dict = {}
+new_cat_dict = {}
+
+for item in cat_list:
+    new_cat_dict[item['id']] = item['name']
+    
+
+for item in anno_list:
+    img_id = item.get('image_id')
+    if img_id not in new_anno_dict:
+        temp_list = []
+        temp_list.append(item)
+        new_anno_dict[img_id] = temp_list
+    else:
+        new_anno_dict.get(img_id).append(item)
+</code></pre>
+<p>Now, let’s create a simple augmentation pipeline that flips our image horizontally and adds a parameter for bounding boxes:</p>
+<pre><code class="language-python">transform = A.Compose(
+    [A.HorizontalFlip(p=0.5)],
+    bbox_params=A.BboxParams(format='coco', label_fields=['category_ids']),
+)
+</code></pre>
+<p>Lastly, we will create a dataset similar to the <a href="https://pytorch.org/docs/stable/_modules/torch/utils/data/dataset.html#Dataset" target="_blank" rel="noopener"><strong>Dataset class</strong></a> offered by Pytorch. To do this, we need to define a class that implements the methods <code>__len__</code> and <code>__getitem__</code>.</p>
+<pre><code class="language-python">class ImageDataset:
+    def __init__(self, path, img_list, anno_dict, cat_dict, albumentations=None):
+        self.path = path
+        self.img_list = img_list
+        self.anno_dict = anno_dict
+        self.cat_dict = cat_dict
+        self.albumentations = albumentations
+    
+    def __len__(self):
+        return len(self.img_list)
+    
+    def __getitem__(self, idx):
+        # Each image may have multiple objects thereby multiple bboxes
+        bboxes = [item['bbox'] for item in self.anno_dict[int(idx)]]
+        cat_ids = [item['category_id'] for item in self.anno_dict[int(idx)]]
+        categories = [self.cat_dict[idx] for idx in cat_ids]
+        image = self.img_list[idx]
+        img = Image.open(f&quot;{self.path}{image.get('file_name')}&quot;)
+        img = img.convert(&quot;RGB&quot;)
+        img = np.array(img)
+        if self.albumentations is not None:
+            augmented = self.albumentations(image=img, bboxes=bboxes, category_ids=cat_ids)
+            img = augmented[&quot;image&quot;]
+        return {
+            &quot;image&quot;: img,
+            &quot;bboxes&quot;: augmented[&quot;bboxes&quot;],
+            &quot;category_ids&quot;: augmented[&quot;category_ids&quot;],
+            &quot;category&quot;: categories
+        }
+
+ # path is the path to the json_file and images
+dataset = ImageDataset(path, image_list, new_anno_dict, new_cat_dict, transform)
+</code></pre>
+<p>Here are some of the results while iterating on the custom dataset:</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img src="/posts_img/fast_feature_engineering/img_7.jpeg" alt="" loading="lazy" data-zoomable /></div>
+  </div></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img src="/posts_img/fast_feature_engineering/img_8.jpeg" alt="" loading="lazy" data-zoomable /></div>
+  </div></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img src="/posts_img/fast_feature_engineering/img_9.jpeg" alt="" loading="lazy" data-zoomable /></div>
+  </div></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img src="/posts_img/fast_feature_engineering/img_10.jpeg" alt="" loading="lazy" data-zoomable /></div>
+  </div></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img src="/posts_img/fast_feature_engineering/img_11.jpeg" alt="" loading="lazy" data-zoomable /></div>
+  </div></figure>
+</p>
+<p>Thus, we can now easily pass this custom dataset to a data loader to train our model.</p>
+<hr>
+<h3 id="feature-extraction">Feature Extraction</h3>
+<p>You may have heard of pre-trained models being used to train image classifiers and for other supervised learning tasks.</p>
+<p>But, did you know that you can also use pre-trained models for feature extraction of images?</p>
+<p>In short feature extraction is a form of dimensionality reduction where a large number of pixels are reduced to a more efficient representation.</p>
+<p>This is primarily useful for unsupervised machine learning tasks such as reverse image search.</p>
+<p>Let’s try to extract features from images using Pytorch’s pre-trained models. To do this, we must first define our feature extractor class:</p>
+<pre><code class="language-python">class ResnetFeatureExtractor(nn.Module):
+    def __init__(self, model):
+        super(ResnetFeatureExtractor, self).__init__()
+        self.model = nn.Sequential(*model.children())[:-1]
+    def forward(self, x):
+        return self.model(x)
+</code></pre>
+<p>Note that in line 4, a new model is created with all of the layers of the original save for the last one. You will recall that the last layer in a neural network is a dense layer used for prediction outputs.</p>
+<p>However, since we are only interested in extracting features, we do not require this last layer. Hence, it is excluded.</p>
+<p>We then utilize torchvision’s pre-trained <code>resnet34</code> model by passing it to the <code>ResnetFeatureExtractor</code> constructor.</p>
+<p>Let’s use the famous <a href="https://paperswithcode.com/dataset/cifar-10" target="_blank" rel="noopener"><strong>CIFAR10 dataset</strong></a> (50000 images), and loop over it to extract the features.</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img src="/posts_img/fast_feature_engineering/img_12.png" alt="" loading="lazy" data-zoomable /></div>
+  </div></figure>
+</p>
+<pre><code class="language-python">cifar_dataset = CIFAR10(&quot;./&quot;, transform=transforms.ToTensor(), download=True)
+cifar_dataloader = DataLoader(cifar_dataset, batch_size=1, shuffle=True)
+
+feature_extractor.eval()
+feature_list = []
+
+for _, data in enumerate(tqdm_notebook(cifar_dataloader)):
+    inputs, labels = data
+    with torch.no_grad():
+        extracted_features = feature_extractor(inputs)
+    extracted_features = torch.flatten(extracted_features)
+    feature_list.append(extracted_features)
+</code></pre>
+<p>We now have a list of 50000 image feature vectors with each feature vector of size 512 (output size of the penultimate layer of the original resnet model).</p>
+<pre><code>print(f&quot;Number of feature vectors: {len(feature_list)}&quot;) #50000  
+print(f&quot;Number of feature vectors: {len(feature_list[0])}&quot;) #512
+</code></pre>
+<p>Thus, this list of feature vectors can now be used by statistical learning models such as KNN to search for similar images.</p>
+<p>If you have reached this far then thank you very much for reading this article! I hope you have a fantastic day ahead! 😄</p>
+<p><strong>👉</strong> <a href="https://github.com/Sayar1106/TowardsDataSciencecodefiles/tree/master/fast_feature_engineering" target="_blank" rel="noopener"><strong>Code used in the article</strong></a></p>
+<p>Until next time! ✋</p>
+<hr>
+<h3 id="references">References:</h3>
+<ul>
+<li><a href="https://www.cs.toronto.edu/~kriz/cifar.html" target="_blank" rel="noopener">https://www.cs.toronto.edu/~kriz/cifar.html</a></li>
+<li><a href="https://www.practicaldeeplearning.ai/" target="_blank" rel="noopener">https://www.practicaldeeplearning.ai/</a></li>
+</ul>
+
+    </div>
+
+    
+
+
+
+
+
+
+
+
+<div class="share-box">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=https://Sayar1106.github.io/post/fast_feature_engineering_image/&amp;text=Fast%20Feature%20Engineering%20in%20Python;%20Image%20Data" target="_blank" rel="noopener" class="share-btn-twitter" aria-label="twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=https://Sayar1106.github.io/post/fast_feature_engineering_image/&amp;t=Fast%20Feature%20Engineering%20in%20Python;%20Image%20Data" target="_blank" rel="noopener" class="share-btn-facebook" aria-label="facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=Fast%20Feature%20Engineering%20in%20Python;%20Image%20Data&amp;body=https://Sayar1106.github.io/post/fast_feature_engineering_image/" target="_blank" rel="noopener" class="share-btn-email" aria-label="envelope">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=https://Sayar1106.github.io/post/fast_feature_engineering_image/&amp;title=Fast%20Feature%20Engineering%20in%20Python;%20Image%20Data" target="_blank" rel="noopener" class="share-btn-linkedin" aria-label="linkedin-in">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="whatsapp://send?text=Fast%20Feature%20Engineering%20in%20Python;%20Image%20Data%20https://Sayar1106.github.io/post/fast_feature_engineering_image/" target="_blank" rel="noopener" class="share-btn-whatsapp" aria-label="whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=https://Sayar1106.github.io/post/fast_feature_engineering_image/&amp;title=Fast%20Feature%20Engineering%20in%20Python;%20Image%20Data" target="_blank" rel="noopener" class="share-btn-weibo" aria-label="weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+  
+  
+    
+  
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      
+      <a href="https://Sayar1106.github.io/"><img class="avatar mr-3 avatar-circle" src="/authors/admin/avatar_hue57d3196935d3905029db4298b35c946_312723_270x270_fill_q75_lanczos_center.jpg" alt="Sayar Banerjee"></a>
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="https://Sayar1106.github.io/">Sayar Banerjee</a></h5>
+      <h6 class="card-subtitle">Analyst</h6>
+      <p class="card-text">My research interests include Deep Learning for society, Natural Language Processing, interpretable and responsible machine learning.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="/#contact" >
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://twitter.com/sayar_banner" target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://medium.com/@sayarbanerjee" target="_blank" rel="noopener">
+        <i class="fab fa-medium"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/Sayar1106" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://www.linkedin.com/in/sayarbanerjee/" target="_blank" rel="noopener">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  </div>
+</article>
+  </div>
+
+  <div class="page-footer">
+    
+    
+    <div class="container">
+      <footer class="site-footer">
+
+  
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+
+
+
+
+
+  <p class="powered-by">
+    
+    
+    
+      
+      
+      
+      
+      
+      
+      Published with <a href="https://wowchemy.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Wowchemy</a> — the free, <a href="https://github.com/wowchemy/wowchemy-hugo-themes" target="_blank" rel="noopener">open source</a> website builder that empowers creators.
+    
+  </p>
+</footer>
+
+    </div>
+    
+  </div>
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      
+
+    
+    <script src="/js/vendor-bundle.min.b73dfaac3b6499dc997741748a7c3fe2.js"></script>
+
+    
+    
+    
+      
+      
+        <script src="https://cdn.jsdelivr.net/gh/desandro/imagesloaded@v4.1.4/imagesloaded.pkgd.min.js" integrity="sha512-S5PZ9GxJZO16tT9r3WJp/Safn31eu8uWrzglMahDT4dsmgqWonRY9grk3j+3tfuPr9WJNsfooOR7Gi7HL5W2jw==" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/gh/metafizzy/isotope@v3.0.6/dist/isotope.pkgd.min.js" integrity="sha512-Zq2BOxyhvnRFXu0+WE6ojpZLOU2jdnqbrM1hmVdGzyeCa1DgM3X5Q4A/Is9xA1IkbUeDd7755dNNI/PzSf2Pew==" crossorigin="anonymous"></script>
+      
+
+      
+      
+
+      
+
+      
+        
+        <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/highlight.min.js" integrity="sha512-Ypjm0o7jOxAd4hpdoppSEN0TQOC19UtPAqD+4s5AlXmUvbmmS/YMxYqAqarQYyxTnB6/rqip9qcxlNB/3U9Wdg==" crossorigin="anonymous"></script>
+        
+        
+        <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/languages/r.min.js" crossorigin="anonymous"></script>
+        
+      
+
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+      
+      <script id="search-hit-fuse-template" type="text/x-template">
+        <div class="search-hit" id="summary-{{key}}">
+          <div class="search-hit-content">
+            <div class="search-hit-name">
+              <a href="{{relpermalink}}">{{title}}</a>
+              <div class="article-metadata search-hit-type">{{type}}</div>
+              <p class="search-hit-description">{{snippet}}</p>
+            </div>
+          </div>
+        </div>
+      </script>
+      
+        <script src="https://cdn.jsdelivr.net/gh/krisk/Fuse@v3.2.1/dist/fuse.min.js" integrity="sha512-o38bmzBGX+hD3JHWUFCDA09btWaqrNmoJ3RXLlrysA7PP01Kgs4UlE4MhelE1v5dJR3+cxlR4qQlotsW7jKsnw==" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/gh/julmot/mark.js@8.11.1/dist/jquery.mark.min.js" integrity="sha512-mhbv5DqBMgrWL+32MmsDOt/OAvqr/cHimk6B8y/bx/xS88MVkYGPiVv2ixKVrkywF2qHplNRUvFsAHUdxZ3Krg==" crossorigin="anonymous"></script>
+      
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+      
+      
+      
+      
+      
+      
+      
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+      
+      
+    
+    
+    <script src="/en/js/wowchemy.min.7cd6ec29d281a73c92a2958a1584aadc.js"></script>
+
+    
+
+
+
+
+
+
+</body>
+</html>
